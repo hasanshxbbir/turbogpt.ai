@@ -43,53 +43,6 @@ export function Input({
     }
   };
 
-  return (
-    <Wrapper>
-      <InputWrapper
-        isMobile={isTabletOrMobile}
-        onSubmit={e => handleSubmitForm(e)}
-      >
-        <MantineInput
-          disabled={!apiKeyStatus || apiKeyVerifiying}
-          radius="md"
-          size={isTabletOrMobile ? 'md' : 'lg'}
-          onChange={e => setMessage(e.target.value)}
-          value={message}
-          style={{ width: '100%' }}
-          placeholder="Type your message here"
-          onKeyDown={e => handleKeyDown(e)}
-          minRows={1}
-          maxRows={3}
-          autosize={true}
-        />
-        <Button
-          disabled={!apiKeyStatus || disabled || apiKeyVerifiying}
-          type="submit"
-          size={isTabletOrMobile ? 'md' : 'lg'}
-          left={5}
-          radius="md"
-          variant="light"
-          color="indigo"
-        >
-          {text}
-        </Button>
-        <Button
-          onClick={() => handleRegen()}
-          disabled={!apiKeyStatus || disabled || apiKeyVerifiying || !canRegen}
-          type="button"
-          size={isTabletOrMobile ? 'md' : 'lg'}
-          variant="filled"
-          radius="md"
-          ml={10}
-          color="red"
-          style={{ padding: '0 10px' }}
-        >
-          <IconRefresh />
-        </Button>
-      </InputWrapper>
-    </Wrapper>
-  );
-}
 
 const Wrapper = styled.div`
   width: 100%;
